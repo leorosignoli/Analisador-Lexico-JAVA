@@ -1,0 +1,4 @@
+se 2.4 > 4 
+	imprima(x<4);
+senao 
+	x = 4
