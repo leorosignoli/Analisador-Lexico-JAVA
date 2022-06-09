@@ -1,4 +1,9 @@
 se 2.4 > 4 
 	imprima(x<4);
 senao 
-	x = 4
+	x = 4 ;
+fim_se
+
+antes x
+depois 4.2;
+fff gg;

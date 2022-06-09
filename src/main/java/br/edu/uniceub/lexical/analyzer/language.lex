@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringUtils;
 %{
 private static Integer posicao = 0;
 private void imprimir(String descricao, String lexema) {
-	int tabSize = descricao.length() > 16? 1 : 2;
+	int tabSize = descricao.length() > 15? 1 : 2;
 	String tab = "\t";
     System.out.println("|"+lexema + "\t\t|\t" + descricao+ 
     	StringUtils.repeat(tab, tabSize)+"|\t"+(posicao++)+"\t|");
@@ -36,7 +36,7 @@ DIVISAO = \/
 INTEIRO = 0|[1-9][0-9]*
 REAL= [0-9]+\.[0-9]
 
-IMPRIMA= imprima\(.*\);
+IMPRIMA= imprima\(.*\)
 
 MAIOR = >
 MENOR = <
@@ -53,6 +53,8 @@ ATRIBUICAO = <-
 "fim_se"				{ imprimir("Palavra reservada", yytext()); }
 "entao"                 { imprimir("Palavra reservada", yytext()); }
 "senao"                 { imprimir("Palavra reservada", yytext()); }
+";"                 	{ imprimir("Fim de instrução", yytext()); }
+
 {IMPRIMA}               { imprimirMetodo("Chamada à método", yytext()); }
 {BRANCO}                { }
 {ID}                    { imprimir("Identificador", yytext()); }
@@ -66,12 +68,12 @@ ATRIBUICAO = <-
 {REAL}               { imprimir("Número Real", yytext()); }
 
 
-{MAIOR}                 { imprimir("Operação aritmética", yytext()); }
-{MENOR}                 { imprimir("Operação aritmética", yytext()); }
-{MENOR_IGUAL}           { imprimir("Operação aritmética", yytext()); }
-{MENOR_IGUAL}           { imprimir("Operação aritmética", yytext()); }
-{IGUAL}          		{ imprimir("Operação aritmética", yytext()); }
-{ATRIBUICAO}     		{ imprimir("Operação aritmética", yytext()); }
+{MAIOR}                 { imprimir("Comparador aritmpético", yytext()); }
+{MENOR}                 { imprimir("Comparador aritmpético", yytext()); }
+{MAIOR_IGUAL}           { imprimir("Comparador aritmpético", yytext()); }
+{MENOR_IGUAL}           { imprimir("Comparador aritmpético", yytext()); }
+{IGUAL}          		{ imprimir("Atribuicao de valor", yytext()); }
+{ATRIBUICAO}     		{ imprimir("Atribuição", yytext()); }
 
 
 

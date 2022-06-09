@@ -16,16 +16,20 @@ public class LanguageSextafFase {
 
 		try {
 			ArrayList<String> strings = portugol();
-			String fullString = strings.stream().reduce("", (a, b) -> a + b);
+			for (String s : strings)
+				if (s.startsWith("se") | s.startsWith("fim_se") | s.startsWith("entao") | s.startsWith("senao")
+						| s.isEmpty())
+					continue;
+				else if (!s.endsWith(";"))
+					throw new Exception("\n Linha \"" + s + "\" não termina com \';\'");
+			String fullString = strings.stream().reduce("", (a, b) -> a + "\n" + b);
 			LexicalAnalyzer lexical = new LexicalAnalyzer(new StringReader(fullString));
-			String titulo = "\n\n" + "|Lexema\t\t|\tToken\t\t\t|Posição |";
-			System.out.println(titulo);
-			System.out.println(StringUtils.repeat("-", 58));
+			cabecalho();
 			lexical.yylex();
 			lexical.yytext();
 		} catch (Exception e) {
-			System.out.println("\nTexto inválido, cessando análise léxica"
-					+ "." + "\n" + "Erro: " + e.getLocalizedMessage());
+			System.out.println(
+					"\nTexto inválido, cessando análise léxica" + "." + "\n" + "Erro: " + e.getLocalizedMessage());
 		}
 	}
 
@@ -47,5 +51,13 @@ public class LanguageSextafFase {
 		System.out.println(lines); // returns a string that textually represents the object
 		return lines;
 
+	}
+
+	private static void cabecalho() {
+		String titulo = "|Lexema\t\t|\tToken\t\t\t|Posição\t|";
+		System.out.println(StringUtils.repeat("-", 65));
+		System.out.println(titulo);
+		System.out.println(StringUtils.repeat("-", 65));
+		return;
 	}
 }

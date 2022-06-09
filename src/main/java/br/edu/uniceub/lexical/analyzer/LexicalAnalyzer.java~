@@ -35,7 +35,7 @@ class LexicalAnalyzer {
   private static final String ZZ_CMAP_PACKED = 
     "\11\0\1\1\1\20\1\21\1\21\1\20\22\0\1\1\7\0\1\17"+
     "\1\22\1\7\1\5\1\0\1\6\1\11\1\7\1\10\11\4\1\0"+
-    "\1\23\1\24\1\25\1\7\2\0\32\2\4\0\1\31\1\0\1\16"+
+    "\1\35\1\24\1\25\1\23\2\0\32\2\4\0\1\31\1\0\1\16"+
     "\3\2\1\27\1\30\2\2\1\12\3\2\1\13\1\32\1\34\1\14"+
     "\1\2\1\15\1\26\1\33\6\2\1\0\1\3\10\0\1\21\u1fa2\0"+
     "\1\21\1\21\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
@@ -52,11 +52,12 @@ class LexicalAnalyzer {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\2\1\4\1\5\1\6"+
-    "\1\7\1\4\1\3\1\7\3\3\2\0\1\3\1\10"+
-    "\2\3\1\11\7\3\1\10\3\3\2\0\1\12";
+    "\1\7\1\4\1\3\2\10\1\11\3\3\1\12\2\0"+
+    "\1\3\1\10\1\13\1\14\2\3\1\15\7\3\1\14"+
+    "\3\3\1\0\1\16";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[36];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -81,14 +82,14 @@ class LexicalAnalyzer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\35\0\35\0\72\0\72\0\127\0\35\0\35"+
-    "\0\35\0\164\0\221\0\256\0\313\0\350\0\u0105\0\u0122"+
-    "\0\164\0\u013f\0\u015c\0\u0179\0\u0196\0\35\0\u01b3\0\u01d0"+
-    "\0\u01ed\0\u020a\0\u0227\0\u0244\0\u0261\0\72\0\u027e\0\u029b"+
-    "\0\u02b8\0\u02d5\0\u02f2\0\u02d5";
+    "\0\0\0\36\0\36\0\74\0\74\0\132\0\36\0\36"+
+    "\0\36\0\170\0\226\0\264\0\322\0\36\0\360\0\u010e"+
+    "\0\u012c\0\36\0\u014a\0\170\0\u0168\0\36\0\36\0\u0186"+
+    "\0\u01a4\0\u01c2\0\36\0\u01e0\0\u01fe\0\u021c\0\u023a\0\u0258"+
+    "\0\u0276\0\u0294\0\74\0\u02b2\0\u02d0\0\u02ee\0\u030c\0\u030c";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[36];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -112,37 +113,37 @@ class LexicalAnalyzer {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-    "\1\12\1\2\1\13\4\4\1\2\1\3\1\0\2\2"+
-    "\1\14\1\11\1\15\1\16\1\17\4\4\37\0\3\4"+
-    "\3\0\1\4\1\0\5\4\7\0\7\4\4\0\1\6"+
-    "\3\0\1\6\1\20\27\0\1\21\3\0\1\21\1\20"+
-    "\25\0\3\4\3\0\1\4\1\0\1\4\1\22\3\4"+
-    "\7\0\7\4\6\0\1\11\16\0\1\11\11\0\3\4"+
-    "\3\0\1\4\1\0\5\4\7\0\1\4\1\23\5\4"+
-    "\2\0\3\4\3\0\1\4\1\0\5\4\7\0\4\4"+
-    "\1\24\2\4\2\0\3\4\3\0\1\4\1\0\1\25"+
-    "\4\4\7\0\7\4\4\0\1\26\3\0\1\26\26\0"+
-    "\3\4\3\0\1\4\1\0\2\4\1\27\2\4\7\0"+
-    "\7\4\2\0\3\4\3\0\1\4\1\0\5\4\7\0"+
-    "\4\4\1\30\2\4\2\0\3\4\3\0\1\4\1\0"+
-    "\5\4\7\0\5\4\1\30\1\4\2\0\3\4\3\0"+
-    "\1\4\1\0\1\4\1\31\3\4\7\0\7\4\2\0"+
-    "\3\4\3\0\1\4\1\0\3\4\1\32\1\4\7\0"+
-    "\7\4\2\0\3\4\3\0\1\4\1\0\4\4\1\33"+
-    "\7\0\7\4\2\0\3\4\3\0\1\4\1\0\5\4"+
-    "\7\0\3\4\1\34\3\4\2\0\3\4\3\0\1\4"+
-    "\1\0\1\35\4\4\7\0\7\4\2\0\3\4\3\0"+
-    "\1\4\1\0\5\4\7\0\6\4\1\36\2\0\3\4"+
-    "\3\0\1\4\1\0\5\4\7\0\1\37\6\4\2\0"+
-    "\3\4\3\0\1\4\1\0\1\4\1\40\3\4\7\0"+
-    "\7\4\2\0\3\4\3\0\1\4\1\0\5\4\7\0"+
-    "\1\4\1\36\5\4\2\0\3\4\3\0\1\4\1\0"+
-    "\4\4\1\41\7\0\7\4\2\0\3\4\3\0\1\4"+
-    "\1\0\5\4\1\42\6\0\7\4\20\42\2\0\1\43"+
-    "\32\42\2\0\1\43\1\44\11\42";
+    "\1\12\1\2\1\13\4\4\1\2\1\3\1\0\1\2"+
+    "\1\14\1\15\1\16\1\17\1\20\1\21\4\4\1\22"+
+    "\40\0\3\4\3\0\1\4\1\0\5\4\7\0\7\4"+
+    "\5\0\1\6\3\0\1\6\1\23\30\0\1\24\3\0"+
+    "\1\24\1\23\26\0\3\4\3\0\1\4\1\0\1\4"+
+    "\1\25\3\4\7\0\7\4\26\0\1\26\16\0\1\27"+
+    "\16\0\1\26\12\0\3\4\3\0\1\4\1\0\5\4"+
+    "\7\0\1\4\1\30\5\4\3\0\3\4\3\0\1\4"+
+    "\1\0\5\4\7\0\4\4\1\31\2\4\3\0\3\4"+
+    "\3\0\1\4\1\0\1\32\4\4\7\0\7\4\5\0"+
+    "\1\33\3\0\1\33\27\0\3\4\3\0\1\4\1\0"+
+    "\2\4\1\34\2\4\7\0\7\4\3\0\3\4\3\0"+
+    "\1\4\1\0\5\4\7\0\4\4\1\35\2\4\3\0"+
+    "\3\4\3\0\1\4\1\0\5\4\7\0\5\4\1\35"+
+    "\1\4\3\0\3\4\3\0\1\4\1\0\1\4\1\36"+
+    "\3\4\7\0\7\4\3\0\3\4\3\0\1\4\1\0"+
+    "\3\4\1\37\1\4\7\0\7\4\3\0\3\4\3\0"+
+    "\1\4\1\0\4\4\1\40\7\0\7\4\3\0\3\4"+
+    "\3\0\1\4\1\0\5\4\7\0\3\4\1\41\3\4"+
+    "\3\0\3\4\3\0\1\4\1\0\1\42\4\4\7\0"+
+    "\7\4\3\0\3\4\3\0\1\4\1\0\5\4\7\0"+
+    "\6\4\1\43\3\0\3\4\3\0\1\4\1\0\5\4"+
+    "\7\0\1\44\6\4\3\0\3\4\3\0\1\4\1\0"+
+    "\1\4\1\45\3\4\7\0\7\4\3\0\3\4\3\0"+
+    "\1\4\1\0\5\4\7\0\1\4\1\43\5\4\3\0"+
+    "\3\4\3\0\1\4\1\0\4\4\1\46\7\0\7\4"+
+    "\3\0\3\4\3\0\1\4\1\0\5\4\1\47\6\0"+
+    "\7\4\1\0\20\47\2\0\1\50\13\47";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[783];
+    int [] result = new int[810];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -180,11 +181,11 @@ class LexicalAnalyzer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\2\11\3\1\3\11\6\1\2\0\4\1\1\11"+
-    "\13\1\2\0\1\1";
+    "\1\0\2\11\3\1\3\11\4\1\1\11\3\1\1\11"+
+    "\2\0\1\1\2\11\3\1\1\11\13\1\1\0\1\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[36];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -268,11 +269,10 @@ private void imprimir(String descricao, String lexema) {
     	StringUtils.repeat(tab, tabSize)+"|\t"+(posicao++)+"\t|");
 }
 private void imprimirMetodo(String descricao, String lexema) {
-	int tabSize = descricao.length() > 16? 1 : 2;
+	int tabSize = descricao.length() > 17? 1 : 2;
 	String tab = "\t";
     System.out.println("|"+lexema + "\t|\t" + descricao+"\t|\t"+(posicao++)+"\t|");
     String args = lexema.substring(9, (lexema.length()-2));
-    lexema.substring(9, 12);
 }
 
 
@@ -588,50 +588,66 @@ private void imprimirMetodo(String descricao, String lexema) {
 
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
         zzAtEOF = true;
-        return null;
+        return ;
       }
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
             { throw new RuntimeException("Caractere inválido " + yytext());
             }
-          case 11: break;
+          case 15: break;
           case 2: 
             { 
             }
-          case 12: break;
+          case 16: break;
           case 3: 
             { imprimir("Identificador", yytext());
             }
-          case 13: break;
+          case 17: break;
           case 4: 
             { imprimir("Número Inteiro", yytext());
             }
-          case 14: break;
+          case 18: break;
           case 5: 
             { imprimir("Operador de soma", yytext());
             }
-          case 15: break;
+          case 19: break;
           case 6: 
             { imprimir("Operador de subtração", yytext());
             }
-          case 16: break;
+          case 20: break;
           case 7: 
             { imprimir("Operação aritmética", yytext());
             }
-          case 17: break;
+          case 21: break;
           case 8: 
+            { imprimir("Comparador aritmpético", yytext());
+            }
+          case 22: break;
+          case 9: 
+            { imprimir("Atribuicao de valor", yytext());
+            }
+          case 23: break;
+          case 10: 
+            { imprimir("Fim de instrução", yytext());
+            }
+          case 24: break;
+          case 11: 
+            { imprimir("Atribuição", yytext());
+            }
+          case 25: break;
+          case 12: 
             { imprimir("Palavra reservada", yytext());
             }
-          case 18: break;
-          case 9: 
+          case 26: break;
+          case 13: 
             { imprimir("Número Real", yytext());
             }
-          case 19: break;
-          case 10: 
+          case 27: break;
+          case 14: 
             { imprimirMetodo("Chamada à método", yytext());
             }
-          case 20: break;
+          case 28: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
