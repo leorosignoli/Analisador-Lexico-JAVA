@@ -10,18 +10,16 @@ import java.util.ArrayList;
 
 import org.apache.commons.lang.StringUtils;
 
-public class LanguageSextafFase {
+public class AnalisadorSemantico {
 
 	public static void main(String[] args) throws IOException {
 
 		try {
 			ArrayList<String> strings = portugol();
 			for (String s : strings)
-				if (s.startsWith("se") | s.startsWith("fim_se") | s.startsWith("entao") | s.startsWith("senao")
-						| s.isEmpty())
-					continue;
-				else if (!s.endsWith(";"))
-					throw new Exception("\n Linha \"" + s + "\" não termina com \';\'");
+				validateStatement(s);
+			segregateVariables(strings);
+
 			String fullString = strings.stream().reduce("", (a, b) -> a + "\n" + b);
 			LexicalAnalyzer lexical = new LexicalAnalyzer(new StringReader(fullString));
 			cabecalho();
@@ -47,9 +45,26 @@ public class LanguageSextafFase {
 			lines.add(line);
 		}
 		fr.close(); // closes the stream and release the resources
-		System.out.println("Conteúdo do arquivo(linhas separadas por vírgula)\n");
+		System.out.println("Conteúdo do arquivo(linhas separadas por vírgula)");
 		System.out.println(lines); // returns a string that textually represents the object
+		System.out.println();
 		return lines;
+
+	}
+
+	private static void segregateVariables(ArrayList<String> strings) {
+
+		for (int i = 0; i < strings.size(); i++) {
+
+			if (strings.get(i).matches("\\s+[a-zA-Z]+\\(.*\\);") | strings.get(i).matches("[a-zA-Z]+\\(.*\\);")) {
+				char[] result = new char[strings.get(i).lastIndexOf(")") - (strings.get(i).indexOf("(") + 1)];
+				strings.get(i).getChars(strings.get(i).indexOf("(") + 1, strings.get(i).lastIndexOf(")"), result, 0);
+				strings.set(i, strings.get(i).replaceAll(new String(result), "<vars>"));
+				strings.add(strings.indexOf(strings.get(i)+1), new String(result));
+
+				System.out.println("Trocando variáveis da linha " + (i + 1) + ": " + strings.get(i));
+			}
+		}
 
 	}
 
@@ -59,5 +74,13 @@ public class LanguageSextafFase {
 		System.out.println(titulo);
 		System.out.println(StringUtils.repeat("-", 65));
 		return;
+	}
+
+	private static void validateStatement(String s) throws Exception {
+
+		if (s.startsWith("se") | s.startsWith("fim_se") | s.startsWith("entao") | s.startsWith("senao") | s.isEmpty())
+			return;
+		else if (!s.endsWith(";"))
+			throw new Exception("\n Linha \"" + s + "\" não termina com \';\'");
 	}
 }

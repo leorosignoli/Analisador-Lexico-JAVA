@@ -11,13 +11,14 @@ private void imprimir(String descricao, String lexema) {
     	StringUtils.repeat(tab, tabSize)+"|\t"+(posicao++)+"\t|");
 }
 private void imprimirMetodo(String descricao, String lexema) {
-	int tabSize = descricao.length() > 16? 1 : 2;
+
+	int lexTabSize = lexema.length() > 15? 1 : 2;
+	 lexTabSize = lexema.length() == 15? 0 : lexTabSize;
+	
 	String tab = "\t";
-    System.out.println("|"+lexema + "\t|\t" + descricao+"\t|\t"+(posicao++)+"\t|");
+    System.out.println("|"+lexema + StringUtils.repeat(tab, lexTabSize)+"|\t" + descricao+"\t|\t"+(posicao++)+"\t|");
     String args = lexema.substring(9, (lexema.length()-2));
 }
-
-
 %}
 
 
@@ -35,6 +36,7 @@ DIVISAO = \/
 
 INTEIRO = 0|[1-9][0-9]*
 REAL= [0-9]+\.[0-9]
+STRING= "[a-zA-Z]+"
 
 IMPRIMA= imprima\(.*\)
 
@@ -65,7 +67,8 @@ ATRIBUICAO = <-
 {DIVISAO}          		{ imprimir("Operação aritmética", yytext()); }
 
 {INTEIRO}               { imprimir("Número Inteiro", yytext()); }
-{REAL}               { imprimir("Número Real", yytext()); }
+{REAL}               	{ imprimir("Número Real", yytext()); }
+{STRING}               	{ imprimir("String", yytext()); }
 
 
 {MAIOR}                 { imprimir("Comparador aritmpético", yytext()); }
