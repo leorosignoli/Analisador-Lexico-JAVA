@@ -33,12 +33,12 @@ class LexicalAnalyzer {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\1\1\25\1\26\1\26\1\25\22\0\1\1\7\0\1\24"+
-    "\1\27\1\7\1\5\1\0\1\6\1\11\1\7\1\10\11\4\1\0"+
-    "\1\42\1\31\1\32\1\30\2\0\1\15\30\2\1\16\1\12\1\0"+
-    "\1\17\1\0\1\36\1\0\1\13\3\2\1\34\1\35\2\2\1\20"+
-    "\3\2\1\21\1\37\1\41\1\22\1\2\1\23\1\33\1\40\5\2"+
-    "\1\14\1\0\1\3\10\0\1\26\u1fa2\0\1\26\1\26\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\11\0\1\1\1\21\1\22\1\22\1\21\22\0\1\1\7\0\1\20"+
+    "\1\23\1\7\1\5\1\0\1\6\1\12\1\10\1\11\11\4\1\0"+
+    "\1\37\1\25\1\26\1\24\2\0\32\2\4\0\1\35\1\0\1\17"+
+    "\1\2\1\30\1\2\1\34\1\32\2\2\1\13\3\2\1\14\1\27"+
+    "\1\31\1\15\1\2\1\16\1\33\1\36\6\2\1\0\1\3\10\0"+
+    "\1\22\u1fa2\0\1\22\1\22\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -53,12 +53,11 @@ class LexicalAnalyzer {
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\2\1\4\1\5\1\6"+
     "\1\7\1\4\1\1\1\3\2\10\1\11\3\3\1\12"+
-    "\3\0\1\3\1\10\1\13\1\14\2\3\1\15\1\0"+
-    "\3\3\1\0\3\3\1\0\1\3\1\14\1\3\1\0"+
-    "\1\3\1\0\1\3\2\0\1\16\1\17";
+    "\2\0\1\13\2\3\1\10\1\14\1\3\1\15\1\3"+
+    "\1\16\2\3\1\15\7\3\1\15\2\3\1\0\1\17";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[49];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -83,16 +82,15 @@ class LexicalAnalyzer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\43\0\43\0\106\0\106\0\151\0\43\0\43"+
-    "\0\43\0\214\0\257\0\322\0\365\0\u0118\0\43\0\u013b"+
-    "\0\u015e\0\u0181\0\43\0\u01a4\0\214\0\u01c7\0\u01ea\0\43"+
-    "\0\43\0\u020d\0\u0230\0\u0253\0\43\0\u0276\0\u0299\0\u02bc"+
-    "\0\u02df\0\u0302\0\u0325\0\u0348\0\u036b\0\u038e\0\u03b1\0\106"+
-    "\0\u03d4\0\u03f7\0\u041a\0\u043d\0\u0460\0\u0483\0\u04a6\0\43"+
-    "\0\u04a6";
+    "\0\0\0\40\0\40\0\100\0\100\0\140\0\40\0\40"+
+    "\0\40\0\200\0\240\0\300\0\340\0\u0100\0\40\0\u0120"+
+    "\0\u0140\0\u0160\0\40\0\u0180\0\200\0\40\0\u01a0\0\u01c0"+
+    "\0\40\0\40\0\u01e0\0\u0200\0\u0220\0\40\0\u0240\0\u0260"+
+    "\0\u0280\0\u02a0\0\u02c0\0\u02e0\0\u0300\0\u0320\0\u0340\0\u0360"+
+    "\0\100\0\u0380\0\u03a0\0\u03c0\0\u03c0";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[49];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -115,45 +113,42 @@ class LexicalAnalyzer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-    "\1\12\1\2\1\13\4\4\1\2\1\14\3\4\1\2"+
-    "\1\3\1\0\1\2\1\15\1\16\1\17\1\20\1\21"+
-    "\1\22\4\4\1\23\45\0\3\4\3\0\1\4\2\0"+
-    "\4\4\1\0\4\4\7\0\7\4\5\0\1\6\3\0"+
-    "\1\6\1\24\35\0\1\25\3\0\1\25\1\24\44\0"+
-    "\1\26\31\0\3\4\3\0\1\4\2\0\4\4\1\0"+
-    "\1\4\1\27\2\4\7\0\7\4\33\0\1\30\16\0"+
-    "\1\31\23\0\1\30\12\0\3\4\3\0\1\4\2\0"+
-    "\4\4\1\0\4\4\7\0\1\4\1\32\5\4\3\0"+
-    "\3\4\3\0\1\4\2\0\4\4\1\0\4\4\7\0"+
-    "\4\4\1\33\2\4\3\0\3\4\3\0\1\4\2\0"+
-    "\4\4\1\0\1\34\3\4\7\0\7\4\5\0\1\35"+
-    "\3\0\1\35\40\0\1\36\36\0\3\4\3\0\1\4"+
-    "\2\0\4\4\1\0\2\4\1\37\1\4\7\0\7\4"+
-    "\3\0\3\4\3\0\1\4\2\0\4\4\1\0\4\4"+
-    "\7\0\4\4\1\40\2\4\3\0\3\4\3\0\1\4"+
-    "\2\0\4\4\1\0\4\4\7\0\5\4\1\40\1\4"+
-    "\3\0\3\4\3\0\1\4\2\0\4\4\1\0\1\4"+
-    "\1\41\2\4\7\0\7\4\15\0\1\42\30\0\3\4"+
-    "\3\0\1\4\2\0\4\4\1\0\3\4\1\43\7\0"+
-    "\7\4\3\0\3\4\3\0\1\4\2\0\1\44\3\4"+
-    "\1\0\4\4\7\0\7\4\3\0\3\4\3\0\1\4"+
-    "\2\0\4\4\1\0\4\4\7\0\3\4\1\45\3\4"+
-    "\16\0\1\46\27\0\3\4\3\0\1\4\2\0\4\4"+
-    "\1\0\1\47\3\4\7\0\7\4\3\0\3\4\3\0"+
-    "\1\4\2\0\4\4\1\0\4\4\7\0\6\4\1\50"+
-    "\3\0\3\4\3\0\1\4\2\0\4\4\1\0\4\4"+
-    "\7\0\1\51\6\4\7\0\1\52\36\0\3\4\3\0"+
-    "\1\4\2\0\4\4\1\0\1\4\1\53\2\4\7\0"+
-    "\7\4\3\0\3\4\3\0\1\4\2\0\4\4\1\0"+
-    "\4\4\7\0\1\4\1\50\5\4\17\0\1\54\26\0"+
-    "\3\4\3\0\1\4\2\0\1\55\3\4\1\0\4\4"+
-    "\7\0\7\4\20\0\1\56\25\0\3\4\3\0\1\4"+
-    "\2\0\4\4\1\0\4\4\1\57\6\0\7\4\6\0"+
-    "\1\60\35\0\25\57\2\0\1\61\13\57";
+    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\2\11"+
+    "\1\12\1\13\1\14\4\4\1\2\1\3\1\0\1\2"+
+    "\1\15\1\16\1\17\3\4\1\20\1\21\1\22\2\4"+
+    "\1\23\42\0\3\4\4\0\1\4\1\0\5\4\7\0"+
+    "\10\4\5\0\1\6\4\0\1\6\1\24\31\0\1\25"+
+    "\4\0\1\25\1\24\34\0\1\26\32\0\3\4\4\0"+
+    "\1\4\1\0\1\4\1\27\3\4\7\0\1\30\7\4"+
+    "\27\0\1\31\17\0\1\32\17\0\1\31\13\0\3\4"+
+    "\4\0\1\4\1\0\1\33\4\4\7\0\10\4\3\0"+
+    "\3\4\4\0\1\4\1\0\5\4\7\0\5\4\1\34"+
+    "\2\4\3\0\3\4\4\0\1\4\1\0\5\4\7\0"+
+    "\1\35\7\4\5\0\1\36\4\0\1\36\30\0\3\4"+
+    "\4\0\1\4\1\0\2\4\1\37\2\4\7\0\10\4"+
+    "\3\0\3\4\4\0\1\4\1\0\1\40\4\4\7\0"+
+    "\10\4\3\0\3\4\4\0\1\4\1\0\1\4\1\41"+
+    "\3\4\7\0\10\4\3\0\3\4\4\0\1\4\1\0"+
+    "\5\4\7\0\1\42\7\4\3\0\3\4\4\0\1\4"+
+    "\1\0\5\4\7\0\7\4\1\42\3\0\3\4\4\0"+
+    "\1\4\1\0\3\4\1\43\1\4\7\0\10\4\3\0"+
+    "\3\4\4\0\1\4\1\0\5\4\7\0\1\4\1\44"+
+    "\6\4\3\0\3\4\4\0\1\4\1\0\5\4\7\0"+
+    "\6\4\1\45\1\4\3\0\3\4\4\0\1\4\1\0"+
+    "\4\4\1\46\7\0\10\4\3\0\3\4\4\0\1\4"+
+    "\1\0\1\47\4\4\7\0\10\4\3\0\3\4\4\0"+
+    "\1\4\1\0\1\46\4\4\7\0\10\4\3\0\3\4"+
+    "\4\0\1\4\1\0\5\4\7\0\4\4\1\50\3\4"+
+    "\3\0\3\4\4\0\1\4\1\0\5\4\7\0\2\4"+
+    "\1\51\5\4\3\0\3\4\4\0\1\4\1\0\1\4"+
+    "\1\52\3\4\7\0\10\4\3\0\3\4\4\0\1\4"+
+    "\1\0\5\4\7\0\5\4\1\51\2\4\3\0\3\4"+
+    "\4\0\1\4\1\0\4\4\1\53\7\0\10\4\3\0"+
+    "\3\4\4\0\1\4\1\0\5\4\1\54\6\0\10\4"+
+    "\1\0\21\54\2\0\1\55\14\54";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[1225];
+    int [] result = new int[992];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -192,12 +187,11 @@ class LexicalAnalyzer {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\1\0\2\11\3\1\3\11\5\1\1\11\3\1\1\11"+
-    "\3\0\1\1\2\11\3\1\1\11\1\0\3\1\1\0"+
-    "\3\1\1\0\3\1\1\0\1\1\1\0\1\1\2\0"+
-    "\1\11\1\1";
+    "\2\0\1\11\2\1\2\11\3\1\1\11\15\1\1\0"+
+    "\1\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[49];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -276,8 +270,10 @@ class LexicalAnalyzer {
 private static Integer posicao = 0;
 private void imprimir(String descricao, String lexema) {
 	int tabSize = descricao.length() > 15? 1 : 2;
+	int lexTabSize = lexema.length() > 6? 1 : 2;
+	lexTabSize = lexema.length() == 15? 0 : lexTabSize;
 	String tab = "\t";
-    System.out.println("|"+lexema + "\t\t|\t" + descricao+ 
+    System.out.println("|"+lexema + StringUtils.repeat(tab, lexTabSize)+"|\t" + descricao+ 
     	StringUtils.repeat(tab, tabSize)+"|\t"+(posicao++)+"\t|");
 }
 private void imprimirMetodo(String descricao, String lexema) {
@@ -289,6 +285,14 @@ private void imprimirMetodo(String descricao, String lexema) {
     System.out.println("|"+lexema + StringUtils.repeat(tab, lexTabSize)+"|\t" + descricao+"\t|\t"+(posicao++)+"\t|");
     String args = lexema.substring(9, (lexema.length()-2));
 }
+private void imprimirString(String descricao, String lexema) {	
+	int tabSize = descricao.length() > 15? 1 : 2;
+	int lexTabSize = lexema.length() > 15? 1 : 2;
+	lexTabSize = lexema.length() == 15? 0 : lexTabSize;
+	String tab = "\t";
+    System.out.println("|"+"\"texto...\"" + StringUtils.repeat(tab, lexTabSize)+"|\t" + descricao+ 
+    	StringUtils.repeat(tab, tabSize)+"|\t"+(posicao++)+"\t|");
+    	}
 
 
   /**
@@ -311,7 +315,7 @@ private void imprimirMetodo(String descricao, String lexema) {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 150) {
+    while (i < 142) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -601,7 +605,7 @@ private void imprimirMetodo(String descricao, String lexema) {
 
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
         zzAtEOF = true;
-        return  ;
+        return ;
       }
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
@@ -634,7 +638,7 @@ private void imprimirMetodo(String descricao, String lexema) {
             }
           case 22: break;
           case 8: 
-            { imprimir("Comparador aritmpético", yytext());
+            { imprimir("Comparador aritmético", yytext());
             }
           case 23: break;
           case 9: 
@@ -646,19 +650,19 @@ private void imprimirMetodo(String descricao, String lexema) {
             }
           case 25: break;
           case 11: 
-            { imprimir("Atribuição", yytext());
+            { imprimirString("String", yytext());
             }
           case 26: break;
           case 12: 
-            { imprimir("Palavra reservada", yytext());
+            { imprimir("Atribuição", yytext());
             }
           case 27: break;
           case 13: 
-            { imprimir("Número Real", yytext());
+            { imprimir("Palavra reservada", yytext());
             }
           case 28: break;
           case 14: 
-            { imprimir("String", yytext());
+            { imprimir("Número Real", yytext());
             }
           case 29: break;
           case 15: 

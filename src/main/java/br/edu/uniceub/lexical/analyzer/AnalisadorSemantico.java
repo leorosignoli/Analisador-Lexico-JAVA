@@ -11,24 +11,33 @@ import java.util.ArrayList;
 import org.apache.commons.lang.StringUtils;
 
 public class AnalisadorSemantico {
+	private static final int TABS = 65;
 
 	public static void main(String[] args) throws IOException {
 
 		try {
 			ArrayList<String> strings = portugol();
+			validateBody(strings);
 			for (String s : strings)
 				validateStatement(s);
 			segregateVariables(strings);
 
 			String fullString = strings.stream().reduce("", (a, b) -> a + "\n" + b);
-			LexicalAnalyzer lexical = new LexicalAnalyzer(new StringReader(fullString));
+			AnalisadorSintatico lexical = new AnalisadorSintatico(new StringReader(fullString));
 			cabecalho();
 			lexical.yylex();
 			lexical.yytext();
 		} catch (Exception e) {
-			System.out.println(
-					"\nTexto inválido, cessando análise léxica" + "." + "\n" + "Erro: " + e.getLocalizedMessage());
+			System.out
+					.println("\nTexto inválido, cessando análise léxica." + "\n" + "Erro: " + e.getLocalizedMessage());
 		}
+	}
+
+	public static void validateBody(ArrayList<String> strings) throws Exception {
+		if (!strings.get(0).equals("inicio") || !strings.get(strings.size() - 1).equals("fim"))
+			throw new Exception("Não começa ou termina com inicio/fim.");
+		else
+			System.out.println("Começo e fim validados.\n");
 	}
 
 	public static ArrayList<String> portugol() throws IOException {
@@ -60,9 +69,10 @@ public class AnalisadorSemantico {
 				char[] result = new char[strings.get(i).lastIndexOf(")") - (strings.get(i).indexOf("(") + 1)];
 				strings.get(i).getChars(strings.get(i).indexOf("(") + 1, strings.get(i).lastIndexOf(")"), result, 0);
 				strings.set(i, strings.get(i).replaceAll(new String(result), "<vars>"));
-				strings.add(strings.indexOf(strings.get(i)+1), new String(result));
+				strings.set(i, strings.get(i).replace("\t", ""));
+				strings.add(i + 1, new String(result));
 
-				System.out.println("Trocando variáveis da linha " + (i + 1) + ": " + strings.get(i));
+				System.out.println("Trocando variáveis da linha " + (i + 1) + ":\t" + strings.get(i));
 			}
 		}
 
@@ -70,15 +80,16 @@ public class AnalisadorSemantico {
 
 	private static void cabecalho() {
 		String titulo = "|Lexema\t\t|\tToken\t\t\t|Posição\t|";
-		System.out.println(StringUtils.repeat("-", 65));
+		System.out.println(StringUtils.repeat("-", TABS));
 		System.out.println(titulo);
-		System.out.println(StringUtils.repeat("-", 65));
+		System.out.println(StringUtils.repeat("-", TABS));
 		return;
 	}
 
-	private static void validateStatement(String s) throws Exception {
-
-		if (s.startsWith("se") | s.startsWith("fim_se") | s.startsWith("entao") | s.startsWith("senao") | s.isEmpty())
+	private static void validateStatement(String string) throws Exception {
+		String s = string.replaceAll("\\s+", "");
+		if (s.startsWith("se") | s.startsWith("inicio") | s.startsWith("fim") | s.startsWith("fim_se")
+				| s.startsWith("entao") | s.startsWith("senao") | s.isEmpty())
 			return;
 		else if (!s.endsWith(";"))
 			throw new Exception("\n Linha \"" + s + "\" não termina com \';\'");

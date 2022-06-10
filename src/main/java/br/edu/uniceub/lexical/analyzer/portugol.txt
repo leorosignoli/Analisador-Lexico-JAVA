@@ -1,10 +1,9 @@
-imprima(x<4);
-se 2.4 > 4 
-	imprima(x<4);
-senao 
-	x = 4 ;
-fim_se
-
-antes x;
-depois 4.2;
-fff gg;
+inicio
+inteiro:b;
+inteiro:c;
+imprima("digite um valor para c:");
+leia(c);
+para b=0 ate c passo 2;
+imprima(b);
+fim_para
+fim
